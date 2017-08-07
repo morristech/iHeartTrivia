@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">iHeartTrivia</string>
+
+    <string-array name="names">
+
+        <item>Hua</item>
+        <item>Jonathan Johnson</item>
+        <item>Eric</item>
+        <item>Darien</item>
+        <item>Kisik</item>
+        <item>Chunan</item>
+        <item>Li</item>
+        <item>Sung</item>
+        <item>Courtney</item>
+        <item>Morgan</item>
+
+    </string-array>
+
+
 </resources>
