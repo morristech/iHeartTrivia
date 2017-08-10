@@ -16,5 +16,20 @@
 
     </string-array>
 
+    <string-array name="categories">
+
+        <item>Hua</item>
+        <item>Jonathan</item>
+        <item>Eric</item>
+        <item>Darien</item>
+        <item>Kisik</item>
+        <item>Chunan</item>
+        <item>Li</item>
+        <item>Sung</item>
+        <item>Courtney</item>
+        <item>Morgan</item>
+
+    </string-array>
+
 
 </resources>

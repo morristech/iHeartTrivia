@@ -8,6 +8,15 @@ class CategoriesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_categories)
+        setContentView(R.layout.frame_layout)
+        if (savedInstanceState == null ) {
+            instantiateFragments()
+        }
+    }
+
+    fun instantiateFragments() {
+        val fragment : CategoriesFragment = CategoriesFragment()
+        supportFragmentManager.beginTransaction().add(R.id.content, fragment).commit()
     }
 }
+
