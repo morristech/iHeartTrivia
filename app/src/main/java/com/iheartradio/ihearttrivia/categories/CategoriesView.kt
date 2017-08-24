@@ -14,10 +14,6 @@ import io.reactivex.Observable
 
 class CategoriesView(inflater: LayoutInflater, container: ViewGroup, val activity: Activity) {
 
-    companion object {
-        const val RESULT_DATA = "RESULT_DATA"
-    }
-
     val mRoot: View = inflater.inflate(R.layout.catogories_view, container, false)
 
     private val mCategoryList: RecyclerView
@@ -36,8 +32,9 @@ class CategoriesView(inflater: LayoutInflater, container: ViewGroup, val activit
 
     fun setResult(categoryId: Int) {
         val intent = Intent()
-        intent.putExtra(RESULT_DATA, categoryId)
-        activity.setResult(Activity.RESULT_OK, intent)
+        intent.putExtra(CategoriesFragment.CATEGORY_KEY, categoryId)
+        activity.setResult(CategoriesActivity.CATEGORIES_RESULT_CODE, intent)
+        activity.finish()
     }
 
     fun onCategoryClicked() : Observable<Category> {

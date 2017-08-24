@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE){
-            Toast.makeText(this, data.getStringExtra(CategoriesFragment.CATEGORY_KEY), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, data.getIntExtra(CategoriesFragment.CATEGORY_KEY, -1).toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
