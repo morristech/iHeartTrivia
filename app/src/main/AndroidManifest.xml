@@ -11,13 +11,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".home.HomeActivity">
         </activity>
-        <activity android:name=".gameplay.GameplayActivity" >
+        <activity android:name=".categories.CategoriesActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-
+        <activity android:name=".gameplay.GameplayActivity" />
         <activity android:name=".roundsummary.RoundSummaryActivity"></activity>
     </application>
 

@@ -6,6 +6,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
@@ -14,7 +15,7 @@ import io.reactivex.subjects.PublishSubject
  */
 class TiltManager(context : Context) : SensorEventListener {
 
-    val TAG : String = "TiltManager"
+    private val TAG : String = "TiltManager"
 
     private val mSubject : PublishSubject<String> = PublishSubject.create()
 
