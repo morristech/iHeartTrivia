@@ -9,5 +9,13 @@ class GameplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gameplay)
+        var fragment = supportFragmentManager.findFragmentById(R.id.gameplay_container)
+
+        if (fragment == null) {
+            fragment = GameplayFragment()
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.gameplay_container, fragment)
+                    .commit()
+        }
     }
 }
