@@ -1,7 +1,9 @@
 package com.iheartradio.ihearttrivia.categories
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,12 +30,22 @@ class CategoriesFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         mPresenter.bindView(mView)
+        mView.onCategoryClicked().subscribe({
+            val intent = Intent()
+            intent.putExtra(CATEGORY_KEY, it)
+            activity.setResult(CategoriesActivity.CATEGORIES_RESULT_CODE, intent)
+            activity.finish()
+        },
+                { Log.e(javaClass.simpleName, "An Exception was thrown") })
+
     }
 
     override fun onStop() {
         super.onStop()
-        mPresenter.unsubscribe()
+    }
 
+    companion object {
+        val CATEGORY_KEY = "category_key"
     }
 }
 

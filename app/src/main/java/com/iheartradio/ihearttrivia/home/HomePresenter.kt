@@ -12,7 +12,7 @@ import io.reactivex.disposables.CompositeDisposable
 class HomePresenter {
     val disposables: CompositeDisposable = CompositeDisposable()
     fun bindView(activity: Activity, homeView: HomeView) {
-        disposables.add(homeView.getOnCategoiesClicked().subscribe({ activity.navigateToActivity<CategoriesActivity>() }))
+        disposables.add(homeView.getOnCategoiesClicked().subscribe({ activity.startActivityForResult<CategoriesActivity>(CategoriesActivity.CATEGORIES_RESULT_CODE)}))
         disposables.add(homeView.getOnGameStartClicked().subscribe({ activity.navigateToActivity<GameplayActivity>() }))
     }
 
@@ -30,5 +30,8 @@ class HomePresenter {
 
 inline fun <reified T:Activity> Activity.navigateToActivity () {
     startActivity(Intent(this, T::class.java))
+}
 
+inline fun <reified T:Activity> Activity.startActivityForResult (resultCode:Int) {
+    startActivityForResult(Intent(this, T::class.java), resultCode)
 }
