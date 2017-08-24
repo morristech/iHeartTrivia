@@ -6,8 +6,8 @@ package com.iheartradio.ihearttrivia.gameplay
 
 class GameModel {
 
-    val words : List<String> = arrayListOf("word1", "word2", "word3")
-    var index : Int = 0
+    private val words : List<String> = arrayListOf("word1", "word2", "word3")
+    private var index : Int = 0
 
     fun getNextWord(): String {
         if (index >= words.size) {
