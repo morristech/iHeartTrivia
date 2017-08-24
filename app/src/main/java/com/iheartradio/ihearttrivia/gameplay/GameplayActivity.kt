@@ -31,5 +31,13 @@ class GameplayActivity : AppCompatActivity() {
     companion object {
         val GAMEPLAY_RESULT_DATA:String = "Gameplay Result Key"
         val GAMEPLAY_RESULT_CODE:Int = 100
+        var fragment = supportFragmentManager.findFragmentById(R.id.gameplay_container)
+
+        if (fragment == null) {
+            fragment = GameplayFragment()
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.gameplay_container, fragment)
+                    .commit()
+        }
     }
 }
