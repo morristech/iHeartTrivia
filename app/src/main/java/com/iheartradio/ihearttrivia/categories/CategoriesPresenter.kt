@@ -1,10 +1,9 @@
 package com.iheartradio.ihearttrivia.categories
 
 import android.util.Log
-import android.widget.Toast
 import io.reactivex.disposables.Disposable
 
-class CategoriesPresenter() {
+class CategoriesPresenter {
     private lateinit var mView: CategoriesView
 
     private val mModel : CategoriesModel = CategoriesModel()
@@ -14,10 +13,19 @@ class CategoriesPresenter() {
 
     fun bindView(view: CategoriesView) {
         mView = view
-        mView.setData(mModel.data)
+
+        mModel.categories().subscribe({
+            mView.setData(it)
+        }, {
+            Log.e(javaClass.simpleName, "An Exception was thrown")
+        })
+
         mDisposable = mView.onCategoryClicked().subscribe ({
-            Toast.makeText(mView.getContext(), it, Toast.LENGTH_LONG).show() },
-                { Log.e(javaClass.simpleName, "An Exception was thrown")})
+            Log.e(javaClass.simpleName, it.toString())
+            mView.setResult(it.id)
+        }, {
+            Log.e(javaClass.simpleName, "An Exception was thrown")
+        })
     }
 
     fun unsubscribe() {

@@ -2,14 +2,15 @@ package com.iheartradio.ihearttrivia.categories
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import com.iheartradio.ihearttrivia.common.Category
 import io.reactivex.subjects.PublishSubject
 
-class CategoriesListAdapter(var categorieNames: List<String> = emptyList())
+class CategoriesListAdapter(var categorieNames: List<Category> = emptyList())
     : RecyclerView.Adapter<CategoriesViewHolder>() {
 
-    private val mOnClicked: PublishSubject<String> = PublishSubject.create()
+    private val mOnClicked: PublishSubject<Category> = PublishSubject.create()
 
-    fun setData(data: List<String>) {
+    fun setData(data: List<Category>) {
         categorieNames = data
         notifyDataSetChanged()
     }
@@ -24,7 +25,7 @@ class CategoriesListAdapter(var categorieNames: List<String> = emptyList())
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-        val data : String = categorieNames[position]
+        val data : Category = categorieNames[position]
         holder.bind(data, { mOnClicked.onNext(data) })
     }
 

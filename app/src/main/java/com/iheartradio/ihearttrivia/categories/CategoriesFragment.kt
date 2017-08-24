@@ -21,7 +21,7 @@ class CategoriesFragment : Fragment() {
         if (inflater == null || container == null) {
             throw IllegalStateException("Dont give me nulls")
         }
-        mView = CategoriesView(inflater, container)
+        mView = CategoriesView(inflater, container, activity)
         return mView.mRoot
     }
 

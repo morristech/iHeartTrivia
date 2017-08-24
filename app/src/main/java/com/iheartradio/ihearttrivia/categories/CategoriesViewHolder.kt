@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.iheartradio.ihearttrivia.R
+import com.iheartradio.ihearttrivia.common.Category
 
 class CategoriesViewHolder(val parent : ViewGroup,
                            val inflater : LayoutInflater = LayoutInflater.from(parent.context),
@@ -15,9 +16,11 @@ class CategoriesViewHolder(val parent : ViewGroup,
     private val mTextView: TextView = mRoot.findViewById<TextView>(R.id.title)
 
 
-    fun bind(categoryName: String, onClickAction : () -> Unit) {
-        mTextView.text = categoryName
-        mTextView.setOnClickListener { onClickAction.invoke() }
+    fun bind(category: Category, onClickAction : () -> Unit) {
+        mTextView.text = category.name
+        itemView.setOnClickListener {
+            onClickAction.invoke()
+        }
     }
 
 }
