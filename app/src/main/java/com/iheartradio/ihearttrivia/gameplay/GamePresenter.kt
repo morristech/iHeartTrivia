@@ -23,10 +23,10 @@ class GamePresenter {
         mTiltManager.register()
 
 
-        mDisposables.add(mView.onClickChanged()
-                .subscribe({ mView.setWord(mModel.getNextWord())}))
+        mDisposables.add(mTiltManager.onTiltChanged().subscribe({
 
-        mDisposables.add(mTiltManager.onTiltChanged().subscribe({ }))
+            mView.setWord(mModel.getNextWord())
+        }))
     }
 
     fun unbind() {

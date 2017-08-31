@@ -10,9 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".home.HomeActivity"/>
 
-        <activity android:name=".categories.CategoriesActivity" >
+        <activity android:name=".home.HomeActivity">
+        </activity>
+        <activity android:name=".gameplay.GameplayActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,7 @@
 
         <activity android:name=".gameplay.GameplayActivity" />
 
-
+        
         <activity android:name=".roundsummary.RoundSummaryActivity"></activity>
     </application>
 
