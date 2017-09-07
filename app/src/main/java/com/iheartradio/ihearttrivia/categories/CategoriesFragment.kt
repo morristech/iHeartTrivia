@@ -32,8 +32,10 @@ class CategoriesFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        mPresenter.unsubscribe()
+    }
 
+    companion object {
+        val CATEGORY_KEY = "category_key"
     }
 }
 
