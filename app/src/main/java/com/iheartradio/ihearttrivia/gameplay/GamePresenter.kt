@@ -1,5 +1,6 @@
 package com.iheartradio.ihearttrivia.gameplay
 
+import android.os.CountDownTimer
 import com.iheartradio.ihearttrivia.TiltManager
 import io.reactivex.disposables.CompositeDisposable
 
@@ -12,12 +13,28 @@ class GamePresenter {
     private lateinit var mView : GameplayView
     private val mDisposables : CompositeDisposable = CompositeDisposable()
 
+    private val mCounterTimer = object: CountDownTimer(5000, 1000){
+        override fun onFinish() {
+            if(!mModel.isFinish()) {
+                mView.setWord(mModel.getCurrentWord())
+            } else {
+                mView.showGameOverMessage("Game Over");
+            }
+        }
+
+        override fun onTick(secInMill: Long) {
+            mView.updateTimer((secInMill/1000).toString())
+        }
+    }
+
     private lateinit var mTiltManager : TiltManager
 
     fun bindView(view : GameplayView) {
         mView = view
-        mView.setWord(mModel.getNextWord())
+        mView.onWordChanged()
+                .subscribe({ startTimer()})
 
+        mView.setWord(mModel.getCurrentWord())
 
         mTiltManager = TiltManager(mView.rootView().context)
         mTiltManager.register()
@@ -25,8 +42,17 @@ class GamePresenter {
 
         mDisposables.add(mTiltManager.onTiltChanged().subscribe({
 
-            mView.setWord(mModel.getNextWord())
+            mView.setWord(mModel.getCurrentWord())
         }))
+
+
+    }
+
+
+
+    fun startTimer() {
+        mCounterTimer.cancel();
+        mCounterTimer.start();
     }
 
     fun unbind() {

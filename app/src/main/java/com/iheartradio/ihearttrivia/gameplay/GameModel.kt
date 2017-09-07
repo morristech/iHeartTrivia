@@ -6,14 +6,19 @@ package com.iheartradio.ihearttrivia.gameplay
 
 class GameModel {
 
-    private val words : List<String> = arrayListOf("word1", "word2", "word3")
+    private val words : List<String> = arrayListOf("word0", "word1", "word2")
     private var index : Int = 0
 
-    fun getNextWord(): String {
-        if (index >= words.size) {
-            index = 0
-        }
+    fun getCurrentWord(): String {
 
-        return words[index++]
+
+
+        val s =  words[index]
+        index++;
+        return s;
+    }
+
+    fun isFinish() : Boolean {
+        return index >= words.size
     }
 }
