@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".home.HomeActivity">
         </activity>
-        <activity android:name=".gameplay.GameplayActivity" >
+        <activity android:name=".gameplay.GameplayActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

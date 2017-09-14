@@ -17,6 +17,7 @@ class GameplayView(val view : View) {
     private val mRoot : View = view
     var mWordTextView : TextView = mRoot.findViewById(R.id.word)
     var mSecRemaining : TextView = mRoot.findViewById(R.id.timer)
+    var mScore : TextView = mRoot.findViewById(R.id.score)
 
 
 
@@ -39,7 +40,11 @@ class GameplayView(val view : View) {
     }
 
     fun updateTimer(sec : String) {
-        mSecRemaining.text = sec + "sec remaning"
+        mSecRemaining.text = sec + " secs remaining"
+    }
+
+    fun updateScore(score : Int) {
+        mScore.text = "$score point "
     }
 
     fun onClickChanged() : Observable<Unit> {
