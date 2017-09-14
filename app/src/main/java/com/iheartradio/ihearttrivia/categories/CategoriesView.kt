@@ -32,7 +32,7 @@ class CategoriesView(inflater: LayoutInflater, container: ViewGroup, val activit
 
     fun setResult(categoryId: Int) {
         val intent = Intent()
-        intent.putExtra(CategoriesFragment.CATEGORY_KEY, categoryId)
+        intent.putExtra(CategoriesFragment.CATEGORY_ID, categoryId)
         activity.setResult(CategoriesActivity.CATEGORIES_RESULT_CODE, intent)
         activity.finish()
     }

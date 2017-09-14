@@ -35,7 +35,7 @@ class CategoriesFragment : Fragment() {
     }
 
     companion object {
-        val CATEGORY_KEY = "category_key"
+        val CATEGORY_ID = "category_id"
     }
 }
 

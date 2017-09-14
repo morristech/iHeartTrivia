@@ -1,11 +1,14 @@
 package com.iheartradio.ihearttrivia.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.iheartradio.ihearttrivia.R
+import com.iheartradio.ihearttrivia.categories.CategoriesActivity
+import com.iheartradio.ihearttrivia.categories.CategoriesFragment
 
 /**
  * Created by hwang on 8/17/17.
@@ -26,5 +29,15 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.unbindView()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
+            presenter.onCategoryResult(data.getIntExtra(CategoriesFragment.CATEGORY_ID, -1))
+        } else if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
+            presenter.onGamePlayResult()
+        }
     }
 }
