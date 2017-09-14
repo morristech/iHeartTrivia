@@ -10,4 +10,8 @@ class GameplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gameplay)
     }
+
+    companion object {
+        val GAMEPLAY_RESULT_CODE:Int = 100
+    }
 }

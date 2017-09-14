@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class HomeView(val view: View) {
 
     init {
-        view.findViewById<View>(R.id.selectCategory).setOnClickListener { onCategoiesClicked.onNext(Unit) }
-        view.findViewById<View>(R.id.startGame).setOnClickListener { onGameStartClicked.onNext(Unit) }
+        view.selectCategory.setOnClickListener { onCategoiesClicked.onNext(Unit) }
+        view.startGame.setOnClickListener { onGameStartClicked.onNext(Unit) }
     }
 
     private val onCategoiesClicked = PublishSubject.create<Unit>()
@@ -25,6 +25,10 @@ class HomeView(val view: View) {
 
     fun getOnGameStartClicked() : Observable<Unit> {
         return onGameStartClicked
+    }
+
+    fun updateCategoryText(categoryName : String) {
+        view.selectCategory.text = categoryName
     }
 
 }
