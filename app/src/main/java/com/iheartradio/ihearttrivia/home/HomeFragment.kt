@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.iheartradio.ihearttrivia.R
 import com.iheartradio.ihearttrivia.categories.CategoriesActivity
 import com.iheartradio.ihearttrivia.categories.CategoriesFragment
+import com.iheartradio.ihearttrivia.gameplay.GameplayActivity
 
 /**
  * Created by hwang on 8/17/17.
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
 
         if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
             presenter.onCategoryResult(data.getIntExtra(CategoriesFragment.CATEGORY_ID, -1))
-        } else if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
+        } else if (requestCode == GameplayActivity.GAMEPLAY_RESULT_CODE) {
             presenter.onGamePlayResult()
         }
     }
