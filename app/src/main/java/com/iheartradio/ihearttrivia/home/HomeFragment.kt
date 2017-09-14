@@ -32,13 +32,15 @@ class HomeFragment : Fragment() {
         presenter.unbindView()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
-            presenter.onCategoryResult(data.getIntExtra(CategoriesFragment.CATEGORY_ID, -1))
-        } else if (requestCode == GameplayActivity.GAMEPLAY_RESULT_CODE) {
-            presenter.onGamePlayResult()
+        data?.let {
+            if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
+                presenter.onCategoryResult(it.getIntExtra(CategoriesFragment.CATEGORY_ID, -1))
+            } else if (requestCode == GameplayActivity.GAMEPLAY_RESULT_CODE) {
+                presenter.onGamePlayResult()
+            }
         }
     }
 }
