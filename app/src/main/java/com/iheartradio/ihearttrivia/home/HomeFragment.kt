@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
             if (requestCode == CategoriesActivity.CATEGORIES_RESULT_CODE) {
                 presenter.onCategoryResult(it.getIntExtra(CategoriesFragment.CATEGORY_ID, -1))
             } else if (requestCode == GameplayActivity.GAMEPLAY_RESULT_CODE) {
-                presenter.onGamePlayResult()
+                presenter.onGamePlayResult(it)
             }
         }
     }
