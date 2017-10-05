@@ -14,10 +14,20 @@ class GameplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gameplay)
-        Timer().schedule(timerTask {
+
+        var fragment = supportFragmentManager.findFragmentById(R.id.gameplay_container)
+
+        if (fragment == null) {
+            fragment = GameplayFragment()
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.gameplay_container, fragment)
+                    .commit()
+        }
+
+        /*Timer().schedule(timerTask {
             createResult(Activity.RESULT_OK) { putExtra(GAMEPLAY_RESULT_DATA, Gson().toJson(list))}
             finish()
-        }, 3)
+        }, 3)*/
     }
 
     val list = listOf<Pair<String, Boolean>>(
