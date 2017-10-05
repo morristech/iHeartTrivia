@@ -2,7 +2,6 @@ package com.iheartradio.ihearttrivia.home
 
 import android.app.Activity
 import android.content.Intent
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.Toast
 import com.iheartradio.ihearttrivia.categories.CategoriesActivity
 import com.iheartradio.ihearttrivia.common.Category
