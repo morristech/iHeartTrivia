@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".gameplay.GameplayActivity" android:screenOrientation="landscape"
-            ></activity>
+        <activity android:name=".gameplay.GameplayActivity" android:screenOrientation="landscape"></activity>
+
 
         <activity android:name=".home.HomeActivity">
             <intent-filter>
@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
 
         <activity android:name=".roundsummary.RoundSummaryActivity"></activity>

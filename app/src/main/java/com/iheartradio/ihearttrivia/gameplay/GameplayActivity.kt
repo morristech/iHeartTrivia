@@ -41,6 +41,5 @@ class GameplayActivity : AppCompatActivity() {
     companion object {
         val GAMEPLAY_RESULT_DATA:String = "Gameplay Result Key"
         val GAMEPLAY_RESULT_CODE:Int = 100
-
     }
 }

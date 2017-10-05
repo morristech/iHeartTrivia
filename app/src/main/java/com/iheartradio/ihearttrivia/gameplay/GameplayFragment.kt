@@ -1,15 +1,12 @@
 package com.iheartradio.ihearttrivia.gameplay
 
 import android.support.v4.app.Fragment
-
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.iheartradio.ihearttrivia.R
-
 
 /**
  * Created by sergioteran on 8/24/17.
