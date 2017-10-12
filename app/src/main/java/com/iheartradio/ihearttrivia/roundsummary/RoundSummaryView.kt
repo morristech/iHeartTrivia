@@ -1,7 +1,6 @@
 package com.iheartradio.ihearttrivia.roundsummary
 
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.iheartradio.ihearttrivia.R
@@ -21,7 +20,10 @@ class RoundSummaryView {
 
     }
 
-    fun bind() {
+    fun bind(data: List<GameResult>) {
+
+        mRecyclerviewAdapter.mData = data
+        mRecyclerviewAdapter.notifyDataSetChanged()
 
     }
 }
