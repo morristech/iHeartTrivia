@@ -17,4 +17,9 @@ class RoundSummaryActivity : AppCompatActivity() {
             instantiateFragments<RoundSummaryFragment>(intent.getBundleExtra(RESULT_KEY))
         }
     }
+
+    companion object {
+        val ROUND_SUMMARY_DATA:String = "Round Summary Data"
+        val ROUND_SUMMARY_DATA_CODE:Int = 101
+    }
 }

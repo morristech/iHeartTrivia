@@ -15,8 +15,8 @@ import io.reactivex.disposables.CompositeDisposable
 class HomePresenter {
     val homeModel = HomeModel()
     val disposables: CompositeDisposable = CompositeDisposable()
-    var activity: Activity? = null
-    var homeView: HomeView? = null
+    private lateinit var activity: Activity
+    private lateinit var homeView: HomeView
     var selectedCategory: Category? = null
 
     fun bindView(activity: Activity, homeView: HomeView) {
@@ -48,9 +48,14 @@ class HomePresenter {
     }
 
     fun onGamePlayResult(intent: Intent) {
-        //activity.startActivityForResult<>()
-        Toast.makeText(activity, intent.getStringExtra(GameplayActivity.GAMEPLAY_RESULT_DATA), Toast.LENGTH_LONG).show()
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if(intent.hasExtra(GameplayActivity.GAMEPLAY_RESULT_DATA)) {
+            Toast.makeText(activity, intent.getStringArrayExtra(GameplayActivity.GAMEPLAY_RESULT_DATA).toString(), Toast.LENGTH_LONG).show()
+        }
+//        activity.navigateToActivity<RoundSummaryActivity>(ROUND_SUMMARY_DATA_CODE, {
+//            putExtra(ROUND_SUMMARY_DATA, "")})
+        homeView.updateTeamAScore(10)
+        homeView.updateTeamBScore(20)
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
 
