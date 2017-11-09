@@ -1,7 +1,6 @@
 package com.iheartradio.ihearttrivia.home
 
 import android.view.View
-import com.iheartradio.ihearttrivia.R
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -31,4 +30,13 @@ class HomeView(val view: View) {
         view.selectCategory.text = categoryName
     }
 
+    fun updateTeamAScore(score : Int) {
+        val teamAScore = view.teamAScore
+        teamAScore.setText((teamAScore.text.toString().toInt() + score).toString())
+    }
+
+    fun updateTeamBScore(score : Int) {
+        val teamBScore = view.teamBScore
+        teamBScore.setText((teamBScore.text.toString().toInt() + score).toString())
+    }
 }

@@ -12,9 +12,12 @@ class RoundSummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_round_summary)
+        instantiateFragments<RoundSummaryFragment>(intent.extras)
 
-        if (savedInstanceState!=null) {
-            instantiateFragments<RoundSummaryFragment>(intent.getBundleExtra(RESULT_KEY))
-        }
+    }
+
+    companion object {
+        val ROUND_SUMMARY_DATA:String = "Round Summary Data"
+        val ROUND_SUMMARY_DATA_CODE:Int = 101
     }
 }

@@ -7,6 +7,5 @@ class RoundSummaryPresenter(val data: List<GameResult>) {
 
     fun bindView(view: RoundSummaryView) {
         view.bind(data)
-
     }
 }
