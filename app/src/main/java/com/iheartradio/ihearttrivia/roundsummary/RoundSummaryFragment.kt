@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.iheartradio.ihearttrivia.R
+import com.google.gson.reflect.TypeToken
+import com.iheartradio.ihearttrivia.gameplay.GameplayActivity
+import com.iheartradio.ihearttrivia.gameplay.listFromJson
 
-class RoundSummaryFragment: Fragment() {
+open class RoundSummaryFragment: Fragment() {
 
     private lateinit var mPresenter:RoundSummaryPresenter
 
@@ -15,7 +17,10 @@ class RoundSummaryFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        mPresenter = RoundSummaryPresenter(data = arguments.getParcelableArrayList(getString(R.string.GAME_RESULT)))
+        val resultCode = GameplayActivity.GAMEPLAY_RESULT_DATA
+        val data: List<GameResult> = arguments.getString(resultCode).listFromJson<GameResult, List<GameResult>>()
+
+        mPresenter = RoundSummaryPresenter(data)
 
         mView.init(container!!, LayoutInflater.from(context))
 

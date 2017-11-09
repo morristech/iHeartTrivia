@@ -49,7 +49,7 @@ class HomePresenter {
 
     fun onGamePlayResult(intent: Intent) {
         if(intent.hasExtra(GameplayActivity.GAMEPLAY_RESULT_DATA)) {
-            Toast.makeText(activity, intent.getStringArrayExtra(GameplayActivity.GAMEPLAY_RESULT_DATA).toString(), Toast.LENGTH_LONG).show()
+            //Toast.makeText(activity, intent.getStringArrayExtra(GameplayActivity.GAMEPLAY_RESULT_DATA).toString(), Toast.LENGTH_LONG).show()
         }
 //        activity.navigateToActivity<RoundSummaryActivity>(ROUND_SUMMARY_DATA_CODE, {
 //            putExtra(ROUND_SUMMARY_DATA, "")})
@@ -62,10 +62,10 @@ class HomePresenter {
 // inline to indicate it is generic
 // reified only works with inline
 
-inline fun <reified T:Activity> Activity.navigateToActivity (resultCode: Int, intentAction:Intent.() -> Unit) {
+inline fun <reified T:Activity> Activity.navigateToActivity (requestCode: Int, intentAction:Intent.() -> Unit) {
     intent = Intent(this, T::class.java)
     intent.intentAction()
-    startActivityForResult(intent, resultCode)
+    startActivityForResult(intent, requestCode)
 }
 
 inline fun Activity.createResult (resultCode: Int, intentAction:Intent.() -> Unit) {
